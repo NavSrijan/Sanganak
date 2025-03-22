@@ -4,7 +4,7 @@ class Parser():
         self.RAM = RAM
         self.addr = addr
 
-        self.memory_ref = {"AND": 0, "ADD": 1, "LDA": 2, "STA": 3}
+        self.memory_ref = {"AND": 0, "ADD": 1, "LDA": 2, "STA": 3, "BUN": 4, }
         self.register_ref = {"CLA": "7800", "CMA": "7200", "INC": "7020"}
         self.io_ref = {"INP": "F800", "OUT": "F400"}
 
