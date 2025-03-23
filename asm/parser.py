@@ -4,7 +4,7 @@ class Parser():
         self.RAM = RAM
         self.addr = addr
 
-        self.memory_ref = {"AND": 0, "ADD": 1, "LDA": 2, "STA": 3, "BUN": 4, }
+        self.memory_ref = {"AND": 0, "ADD": 1, "LDA": 2, "STA": 3, "BUN": 4, "BSA": 5, "ISZ": 6}
         self.register_ref = {"CLA": "7800", "CMA": "7200", "INC": "7020"}
         self.io_ref = {"INP": "F800", "OUT": "F400"}
 
@@ -64,7 +64,7 @@ class Parser():
         command = "" # Final command
 
         if "@" in args[1]:
-            command += str( self.memory_ref[cmd] + 8 )
+            command += str( hex(self.memory_ref[cmd] + 8 )[2:] )
             addr = args[1].split("@")[1][2:]
         else:
             command += str( self.memory_ref[cmd] )
